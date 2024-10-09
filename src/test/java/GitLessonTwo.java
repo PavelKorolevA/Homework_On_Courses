@@ -1,5 +1,6 @@
 public class GitLessonTwo {
     private static String omg = "Merge conflict!!!!";
+    private static String ufc = "Konor vs McGregor";
 
     public static void main(String[] args) {
         int a = 10;
@@ -7,15 +8,6 @@ public class GitLessonTwo {
         int c = a + b;
         System.out.println("The sum of a and b is " + c + " " + "Hello, Pitter Parker");
     }
-
-    public static int add(int a, int b) {
-        return a + b;
-    }
-
-    public static int subtract(int a, int b) {
-        return a - b;
-    }
-
     public static int multiply(int a, int b) {
         return a * b;
     }
@@ -35,6 +27,10 @@ public class GitLessonTwo {
 
         }
         return result;
+    }
+
+    public static String getMessage() {
+        return ufc;
     }
 
     public static int factorial(int n) {
