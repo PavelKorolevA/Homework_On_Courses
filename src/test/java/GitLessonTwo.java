@@ -1,5 +1,5 @@
 public class GitLessonTwo {
-    private static String omg = "Merge conflict!!!!"
+    private static String omg = "Merge conflict!!!!";
     public static void main(String[] args) {
         int a = 10;
         int b = 20;
