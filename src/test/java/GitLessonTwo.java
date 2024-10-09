@@ -1,6 +1,6 @@
 public class GitLessonTwo {
     private static String omg = "Merge conflict!!!!";
-    private static String ufc = "Konor vs McGregor";
+    private static String ufc = "Konor vs McFregor";
     
     public static void main(String[] args) {
         int a = 10;
