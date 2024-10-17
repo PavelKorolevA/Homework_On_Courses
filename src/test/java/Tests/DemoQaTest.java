@@ -4,12 +4,14 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeAll;
-import org.openqa.selenium.By;
 
+
+import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 class DemoQaTest {
+    public String title = "//h1[@class='text-center']";
     public String firstName = "//input[@id='firstName']";
     public String lastName = "//input[@id='lastName']";
     public String email = "//input[@id='userEmail']";
