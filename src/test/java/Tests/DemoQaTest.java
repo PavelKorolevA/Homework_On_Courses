@@ -31,13 +31,6 @@ class DemoQaTest {
     public String city2 = "//*[text()='Delhi']";
     public String submit = "//button[@id='submit']";
 
-//    @BeforeAll
-//    static void beforeAll() {
-//        Configuration.browserSize = "1920x1080";
-//        Configuration.timeout = 10000;
-//        Configuration.baseUrl = "https://demoqa.com";
-//        Configuration.headless = true;
-//    }
 
     @Test
     void testDemoQa() {
