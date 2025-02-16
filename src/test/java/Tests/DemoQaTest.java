@@ -1,11 +1,6 @@
 package Tests;
 
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeAll;
-
-
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
