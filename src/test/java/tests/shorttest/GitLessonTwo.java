@@ -1,3 +1,5 @@
+package tests.shorttest;
+
 public class GitLessonTwo {
     private static String omg = "Merge conflict!!!!";
     private static String ufc = "Konor vs McGregor";
