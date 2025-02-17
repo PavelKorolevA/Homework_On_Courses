@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class Enterprize {
     @Test
-    public void checkLoadingPage () {
+    public void checkLoadingPageTest () {
         open("https://github.com");
         $$(".HeaderMenu-nav li").findBy(text("Solutions")).hover();
         $("[href=\"https://github.com/enterprise\"]").hover().click();

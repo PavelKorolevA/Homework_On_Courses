@@ -16,7 +16,7 @@ public class DragAndDrop {
     }
 
     @Test
-    public void variantTwo () {
+    public void variantTwoTest () {
         open("https://the-internet.herokuapp.com/drag_and_drop");
         actions().dragAndDrop($("#column-a"), $("#column-b")).perform();
         $("#column-a").shouldHave(text("B"));

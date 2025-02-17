@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class CheckJunit {
 
     @Test
-    public void checkForTheAvailabilityOfJunit() {
+    public void checkForTheAvailabilityOfJunitTest() {
         open("https://github.com/selenide/selenide");
         $("[data-content='Wiki']").click();
         $$("ul.internal present").findBy(text("Soft assertions"));
