@@ -1,110 +1,119 @@
 package pages;
 
+import io.qameta.allure.Step;
+import pages.components.CalendarComponent;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.textCaseSensitive;
 import static com.codeborne.selenide.Selenide.*;
 
 public class DemoQaPage {
+    public static String firstName = "//input[@id='firstName']";
+    public static String lastName = "//input[@id='lastName']";
+    public static String email = "//input[@id='userEmail']";
+    public static String gender = "//label[text()='Male']";
+    public static String mobile = "//input[@id='userNumber']";
+    public static String subjects = "//input[@id='subjectsInput']";
+    public static String hobbies = "//label[text()='Music']";
+    public static String picture = "//input[@id='uploadPicture']";
+    public static String currentAddress = "//textarea[@id='currentAddress']";
+    public static String state = "//div[@id='state']";
+    public static String state2 = "//*[text()='NCR']";
+    public static String city = "//div[@id='city']";
+    public static String city2 = "//*[text()='Delhi']";
+    public static String submit = "//button[@id='submit']";
+    CalendarComponent calendarComponent = new CalendarComponent();
 
+
+    @Step("Open page")
     public DemoQaPage openPage() {
         open("https://demoqa.com/automation-practice-form");
         return this;
     }
 
-    public static String firstName = "//input[@id='firstName']";
+    @Step("Set first name")
     public DemoQaPage setFirstName() {
         $x(firstName).sendKeys("Pavel");
         return this;
     }
 
-
-    public static String lastName = "//input[@id='lastName']";
+    @Step("Set last name")
     public DemoQaPage  setLastName() {
         $x(lastName).setValue("Korolev");
         return this;
     }
 
-    public static String email = "//input[@id='userEmail']";
+    @Step("Set email")
     public DemoQaPage setEmail() {
         $x(email).setValue("pavel.korolev@gmail.com");
         return this;
     }
 
-    public static String gender = "//label[text()='Male']";
+    @Step("Set gender")
     public DemoQaPage setGender() {
         $x(gender).click();
         return this;
     }
 
-    public static String mobile = "//input[@id='userNumber']";
+    @Step("Set mobile")
     public DemoQaPage setMobile() {
         $x(mobile).setValue("9261234567");
         return this;
     }
 
-    public static String dateOfBirth = "//input[@id='dateOfBirthInput']";
-    public static String mounth = "//select[@class='react-datepicker__month-select']";
-    public static String year = "//select[@class='react-datepicker__year-select']";
-    public static String day = "//div[@class='react-datepicker__day react-datepicker__day--019']";
+    @Step("Set date of birth")
     public DemoQaPage setDateOfBirth() {
-        $x(dateOfBirth).click();
-        $x(mounth).selectOption("November");
-        $x(year).selectOption("1996");
-        $x(day).click();
+        calendarComponent.setDate();
         return this;
     }
 
-    public static String subjects = "//input[@id='subjectsInput']";
+    @Step("Set subjects")
     public DemoQaPage setSubjects() {
         $x(subjects).setValue("Biology, Chemistry");
         return this;
     }
 
-    public static String hobbies = "//label[text()='Music']";
+    @Step("Set hobbies")
     public DemoQaPage setHobbies() {
         $x(hobbies).click();
         return this;
     }
 
-    public static String picture = "//input[@id='uploadPicture']";
+    @Step("Set picture")
     public DemoQaPage setPicture() {
         $x(picture).uploadFromClasspath("1.png");
         return this;
     }
 
 
-    public static String currentAddress = "//textarea[@id='currentAddress']";
+    @Step("Set address")
     public DemoQaPage setAddress() {
         $x(currentAddress).setValue("Samara");
         return this;
     }
 
-
-    public static String state = "//div[@id='state']";
-    public static String state2 = "//*[text()='NCR']";
+    @Step("Set state")
     public DemoQaPage setState() {
         $x(state).click();
         $x(state2).click();
         return this;
     }
 
-
-    public static String city = "//div[@id='city']";
-    public static String city2 = "//*[text()='Delhi']";
+    @Step("Set city")
     public DemoQaPage setCity() {
         $x(city).click();
         $x(city2).click();
         return this;
     }
 
-
-    public static String submit = "//button[@id='submit']";
+    @Step("Set submit")
     public DemoQaPage setSubmit() {
         $x(submit).click();
         return this;
     }
 
-    public DemoQaPage checkFormRegistration() {
+    @Step("Check form registration")
+    public void checkFormRegistration() {
         $x("//div[@class='modal-header']").shouldHave(text("Thanks for submitting the form"));
         $(".table-responsive").shouldHave(
                 textCaseSensitive("Student Name"),    textCaseSensitive("Pavel Korolev"),
@@ -118,6 +127,5 @@ public class DemoQaPage {
                 textCaseSensitive("Address"),         textCaseSensitive("Samara"),
                 textCaseSensitive("State and City"),  textCaseSensitive("NCR Delhi")
         );
-        return this;
     }
 }
