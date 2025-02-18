@@ -14,7 +14,7 @@ class DemoQaTest extends DemoQaPage {
     }
 
     @Test
-    void testDemoQa() {
+    void testDemoQaTest() {
         demoQaPage.openPage()
                 .setFirstName()
                 .setLastName()
