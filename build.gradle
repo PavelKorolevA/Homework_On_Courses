@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 group 'guru.qa'
@@ -19,6 +20,19 @@ dependencies {
 
     )
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(Test).configureEach {
+    testLogging {
+        lifecycle {
+            events "STARTED", "SKIPPED", "FAILED", "STANDARD_ERROR", "STANDARD_OUT"
+            exceptionFormat "short"
+        }
+    }
 }
 
 test {

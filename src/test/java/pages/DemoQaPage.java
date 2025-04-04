@@ -3,31 +3,31 @@ package pages;
 import io.qameta.allure.Step;
 import pages.components.CalendarComponent;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.textCaseSensitive;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
-public class DemoQaPage {
-    public static String firstName = "//input[@id='firstName']";
-    public static String lastName = "//input[@id='lastName']";
-    public static String email = "//input[@id='userEmail']";
-    public static String gender = "//label[text()='Male']";
-    public static String mobile = "//input[@id='userNumber']";
-    public static String subjects = "//input[@id='subjectsInput']";
-    public static String hobbies = "//label[text()='Music']";
-    public static String picture = "//input[@id='uploadPicture']";
-    public static String currentAddress = "//textarea[@id='currentAddress']";
-    public static String state = "//div[@id='state']";
-    public static String state2 = "//*[text()='NCR']";
-    public static String city = "//div[@id='city']";
-    public static String city2 = "//*[text()='Delhi']";
-    public static String submit = "//button[@id='submit']";
-    CalendarComponent calendarComponent = new CalendarComponent();
+public class DemoQaPage extends BasePage{
+    public static String
+    firstName = "//input[@id='firstName']",
+    lastName = "//input[@id='lastName']",
+    email = "//input[@id='userEmail']",
+    gender = "//label[text()='Male']",
+    mobile = "//input[@id='userNumber']",
+    subjects = "//input[@id='subjectsInput']",
+    hobbies = "//label[text()='Music']",
+    picture = "//input[@id='uploadPicture']",
+    currentAddress = "//textarea[@id='currentAddress']",
+    state = "//div[@id='state']",
+    state2 = "//*[text()='NCR']",
+    city = "//div[@id='city']",
+    city2 = "//*[text()='Delhi']",
+    submit = "//button[@id='submit']";
 
+    CalendarComponent calendarComponent = new CalendarComponent();
 
     @Step("Open page")
     public DemoQaPage openPage() {
-        open("https://demoqa.com/automation-practice-form");
+        open("/automation-practice-form");
         return this;
     }
 
@@ -37,15 +37,33 @@ public class DemoQaPage {
         return this;
     }
 
+    @Step("Set minimal first name")
+    public DemoQaPage setMinimalFirstName() {
+        $x(firstName).sendKeys("");
+        return this;
+    }
+
     @Step("Set last name")
     public DemoQaPage  setLastName() {
-        $x(lastName).setValue("Korolev");
+        $x(lastName).sendKeys("Korolev");
+        return this;
+    }
+
+    @Step("Set minimal last name")
+    public DemoQaPage setMinimalLastName() {
+        $x(lastName).sendKeys("");
         return this;
     }
 
     @Step("Set email")
     public DemoQaPage setEmail() {
         $x(email).setValue("pavel.korolev@gmail.com");
+        return this;
+    }
+
+    @Step("Set invalid email")
+    public DemoQaPage setInvalidEmail() {
+        $x(email).setValue("ru.ru");
         return this;
     }
 
@@ -58,6 +76,12 @@ public class DemoQaPage {
     @Step("Set mobile")
     public DemoQaPage setMobile() {
         $x(mobile).setValue("9261234567");
+        return this;
+    }
+
+    @Step("Set minimal phone number")
+    public DemoQaPage setMinimalPhoneNumber() {
+        $x(mobile).setValue("8").pressEnter();
         return this;
     }
 
@@ -127,5 +151,17 @@ public class DemoQaPage {
                 textCaseSensitive("Address"),         textCaseSensitive("Samara"),
                 textCaseSensitive("State and City"),  textCaseSensitive("NCR Delhi")
         );
+    }
+
+    @Step("Check minimal form registration")
+    public void checkMinimalFormRegistration() {
+        $x(mobile).shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
+        $x(firstName).shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
+        $x(lastName).shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
+    }
+
+    @Step("Check invalid email")
+    public void checkInvalidEmail() {
+        $x(email).shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
     }
 }
