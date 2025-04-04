@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tests.shorttest.DemoQaTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-02-18T10:40:45" hostname="G9900-NMP2LWDQP" time="6.162">
+<testsuite name="tests.shorttest.DemoQaTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-04-04T11:54:03" hostname="G9900-NMP2LWDQP" time="5.767">
   <properties/>
-  <testcase name="testDemoQa()" classname="tests.shorttest.DemoQaTest" time="6.162"/>
+  <testcase name="Проверка формы регистрации на сайте DemoQA. Позитивный сценарий" classname="tests.shorttest.DemoQaTest" time="5.767"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[SLF4J(W): No SLF4J providers were found.
 SLF4J(W): Defaulting to no-operation (NOP) logger implementation
 SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
-февр. 18, 2025 1:40:46 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find an exact match for CDP version 133, returning the closest version; found: 129; Please update to a Selenium version that supports CDP version 133
+апр. 04, 2025 2:54:04 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 134
+апр. 04, 2025 2:54:04 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 134.0.6998.179. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.25.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
 </testsuite>

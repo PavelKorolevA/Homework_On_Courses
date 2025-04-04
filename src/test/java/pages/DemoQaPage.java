@@ -2,6 +2,7 @@ package pages;
 
 import io.qameta.allure.Step;
 import pages.components.CalendarComponent;
+import pages.components.CheckFormResultRegistration;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -24,6 +25,7 @@ public class DemoQaPage extends BasePage{
     submit = "//button[@id='submit']";
 
     CalendarComponent calendarComponent = new CalendarComponent();
+    CheckFormResultRegistration checkFormResultRegistration = new CheckFormResultRegistration();
 
     @Step("Open page")
     public DemoQaPage openPage() {
@@ -137,20 +139,8 @@ public class DemoQaPage extends BasePage{
     }
 
     @Step("Check form registration")
-    public void checkFormRegistration() {
-        $x("//div[@class='modal-header']").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").shouldHave(
-                textCaseSensitive("Student Name"),    textCaseSensitive("Pavel Korolev"),
-                textCaseSensitive("Student Email"),   textCaseSensitive("pavel.korolev@gmail.com"),
-                textCaseSensitive("Gender"),          textCaseSensitive("Male"),
-                textCaseSensitive("Mobile"),          textCaseSensitive("9261234567"),
-                textCaseSensitive("Date of Birth"),   textCaseSensitive("19 November,1996"),
-                textCaseSensitive("Subjects"),        textCaseSensitive(" "),
-                textCaseSensitive("Hobbies"),         textCaseSensitive("Music"),
-                textCaseSensitive("Picture"),         textCaseSensitive("1.png"),
-                textCaseSensitive("Address"),         textCaseSensitive("Samara"),
-                textCaseSensitive("State and City"),  textCaseSensitive("NCR Delhi")
-        );
+    public void setCheckFormRegistration() {
+       checkFormResultRegistration.checkResultRegistration();
     }
 
     @Step("Check minimal form registration")

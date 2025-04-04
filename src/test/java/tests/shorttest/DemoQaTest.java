@@ -33,7 +33,7 @@ class DemoQaTest extends DemoQaPage {
                 .setState()
                 .setCity()
                 .setSubmit()
-                .checkFormRegistration();
+                .setCheckFormRegistration();
     }
 
     @Tag("minimal")
