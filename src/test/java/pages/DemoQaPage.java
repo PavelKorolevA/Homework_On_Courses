@@ -1,5 +1,6 @@
 package pages;
 
+import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import pages.components.CalendarComponent;
 import pages.components.CheckFormResultRegistration;
@@ -8,21 +9,20 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class DemoQaPage extends BasePage{
-    public static String
-    firstName = "//input[@id='firstName']",
-    lastName = "//input[@id='lastName']",
-    email = "//input[@id='userEmail']",
-    gender = "//label[text()='Male']",
-    mobile = "//input[@id='userNumber']",
-    subjects = "//input[@id='subjectsInput']",
-    hobbies = "//label[text()='Music']",
-    picture = "//input[@id='uploadPicture']",
-    currentAddress = "//textarea[@id='currentAddress']",
-    state = "//div[@id='state']",
-    state2 = "//*[text()='NCR']",
-    city = "//div[@id='city']",
-    city2 = "//*[text()='Delhi']",
-    submit = "//button[@id='submit']";
+    private SelenideElement firstName = $("#firstName"),
+    lastName = $("#lastName"),
+    email = $("#userEmail"),
+    gender = $("#gender-radio-1"),
+    mobile = $("#userNumber"),
+    subjects = $("#subjectsInput"),
+    hobbies = $("#hobbies-checkbox-3"),
+    picture = $("#uploadPicture"),
+    currentAddress = $("#currentAddress"),
+    state = $("#state"),
+    state2 = $x("//*[text()='NCR']"),
+    city = $("#city"),
+    city2 = $x("//*[text()='Delhi']"),
+    submit = $("#submit");
 
     CalendarComponent calendarComponent = new CalendarComponent();
     CheckFormResultRegistration checkFormResultRegistration = new CheckFormResultRegistration();
@@ -34,26 +34,26 @@ public class DemoQaPage extends BasePage{
     }
 
     @Step("Set first name")
-    public DemoQaPage setFirstName() {
-        $x(firstName).sendKeys("Pavel");
+    public DemoQaPage setFirstName(String value) {
+        firstName.setValue(value);
         return this;
     }
 
     @Step("Set minimal first name")
-    public DemoQaPage setMinimalFirstName() {
-        $x(firstName).sendKeys("");
+    public DemoQaPage setMinimalFirstName(String value) {
+        firstName.setValue(value);
         return this;
     }
 
     @Step("Set last name")
-    public DemoQaPage  setLastName() {
-        $x(lastName).sendKeys("Korolev");
+    public DemoQaPage  setLastName(String value) {
+        lastName.setValue(value);
         return this;
     }
 
     @Step("Set minimal last name")
-    public DemoQaPage setMinimalLastName() {
-        $x(lastName).sendKeys("");
+    public DemoQaPage setMinimalLastName(String value) {
+        lastName.setValue(value);
         return this;
     }
 
