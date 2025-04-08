@@ -15,12 +15,6 @@ class DemoQaTest extends BaseTest {
     CheckFormResultRegistration checkFormResultRegistration = new CheckFormResultRegistration();
     DemoQaPage demoQaPage = new DemoQaPage();
 
-    @BeforeAll
-    static void setUp() {
-        Configuration.browserSize = "1920x1080";
-        Configuration.pageLoadStrategy = "eager";
-    }
-
     @Tag("positive")
     @Test ()
     @DisplayName("Проверка формы регистрации на сайте DemoQA. Позитивный сценарий")
