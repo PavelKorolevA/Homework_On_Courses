@@ -17,6 +17,7 @@ class DemoQaTest extends BaseTest {
     @Test ()
     @DisplayName("Проверка формы регистрации на сайте DemoQA. Позитивный сценарий")
     void testDemoQaTest() {
+
         demoQaPage.openPage()
                 .setFirstName("Pavel")
                 .setLastName("Korolev")
