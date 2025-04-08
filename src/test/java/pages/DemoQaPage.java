@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class DemoQaPage extends BaseTest {
+public class DemoQaPage {
     private final SelenideElement firstName = $("#firstName");
     private final SelenideElement lastName = $("#lastName");
     private final SelenideElement email = $("#userEmail");

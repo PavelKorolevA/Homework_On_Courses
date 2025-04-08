@@ -7,9 +7,10 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.DemoQaPage;
 import pages.components.CheckFormResultRegistration;
+import tests.base.BaseTest;
 
 
-class DemoQaTest extends DemoQaPage {
+class DemoQaTest extends BaseTest {
 
     CheckFormResultRegistration checkFormResultRegistration = new CheckFormResultRegistration();
     DemoQaPage demoQaPage = new DemoQaPage();
