@@ -3,12 +3,13 @@ package pages;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import pages.components.CalendarComponent;
+import tests.shorttest.BaseTest;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class DemoQaPage extends BasePage{
+public class DemoQaPage extends BaseTest {
     private final SelenideElement firstName = $("#firstName");
     private final SelenideElement lastName = $("#lastName");
     private final SelenideElement email = $("#userEmail");

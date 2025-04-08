@@ -1,10 +1,10 @@
-package pages;
+package tests.shorttest;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 
 
-public class BasePage {
+public class BaseTest {
 
     @BeforeAll
     static void beforeAll() {
