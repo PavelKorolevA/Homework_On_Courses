@@ -3,29 +3,28 @@ package pages;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import pages.components.CalendarComponent;
-import pages.components.CheckFormResultRegistration;
 
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class DemoQaPage extends BasePage{
-    private SelenideElement firstName = $("#firstName"),
-    lastName = $("#lastName"),
-    email = $("#userEmail"),
-    gender = $("#gender-radio-1"),
-    mobile = $("#userNumber"),
-    subjects = $("#subjectsInput"),
-    hobbies = $("#hobbies-checkbox-3"),
-    picture = $("#uploadPicture"),
-    currentAddress = $("#currentAddress"),
-    state = $("#state"),
-    state2 = $x("//*[text()='NCR']"),
-    city = $("#city"),
-    city2 = $x("//*[text()='Delhi']"),
-    submit = $("#submit");
+    private final SelenideElement firstName = $("#firstName");
+    private final SelenideElement lastName = $("#lastName");
+    private final SelenideElement email = $("#userEmail");
+    private final SelenideElement gender = $("#genterWrapper");
+    private final SelenideElement mobile = $("#userNumber");
+    private final SelenideElement subjects = $("#subjectsInput");
+    private final SelenideElement hobbies = $x("//label[text()='Music']");
+    private final SelenideElement picture = $("#uploadPicture");
+    private final SelenideElement currentAddress = $("#currentAddress");
+    private final SelenideElement state = $("#state");
+    private final SelenideElement state2 = $x("//*[text()='NCR']");
+    private final SelenideElement city = $("#city");
+    private final SelenideElement city2 = $x("//*[text()='Delhi']");
+    private final SelenideElement submit = $("#submit");
 
     CalendarComponent calendarComponent = new CalendarComponent();
-    CheckFormResultRegistration checkFormResultRegistration = new CheckFormResultRegistration();
 
     @Step("Open page")
     public DemoQaPage openPage() {
@@ -58,32 +57,32 @@ public class DemoQaPage extends BasePage{
     }
 
     @Step("Set email")
-    public DemoQaPage setEmail() {
-        $x(email).setValue("pavel.korolev@gmail.com");
+    public DemoQaPage setEmail(String value) {
+        email.setValue(value);
         return this;
     }
 
     @Step("Set invalid email")
-    public DemoQaPage setInvalidEmail() {
-        $x(email).setValue("ru.ru");
+    public DemoQaPage setInvalidEmail(String value) {
+        email.setValue(value);
         return this;
     }
 
     @Step("Set gender")
-    public DemoQaPage setGender() {
-        $x(gender).click();
+    public DemoQaPage setGender(String value) {
+        gender.$(byText(value)).click();
         return this;
     }
 
     @Step("Set mobile")
-    public DemoQaPage setMobile() {
-        $x(mobile).setValue("9261234567");
+    public DemoQaPage setMobile(String value) {
+        mobile.setValue(value);
         return this;
     }
 
     @Step("Set minimal phone number")
-    public DemoQaPage setMinimalPhoneNumber() {
-        $x(mobile).setValue("8").pressEnter();
+    public DemoQaPage setMinimalPhoneNumber(String value) {
+        mobile.setValue(value).pressEnter();
         return this;
     }
 
@@ -94,64 +93,59 @@ public class DemoQaPage extends BasePage{
     }
 
     @Step("Set subjects")
-    public DemoQaPage setSubjects() {
-        $x(subjects).setValue("Biology, Chemistry");
+    public DemoQaPage setSubjects(String value) {
+        subjects.setValue(value);
         return this;
     }
 
     @Step("Set hobbies")
     public DemoQaPage setHobbies() {
-        $x(hobbies).click();
+        hobbies.click();
         return this;
     }
 
     @Step("Set picture")
     public DemoQaPage setPicture() {
-        $x(picture).uploadFromClasspath("1.png");
+        picture.uploadFromClasspath("1.png");
         return this;
     }
 
 
     @Step("Set address")
-    public DemoQaPage setAddress() {
-        $x(currentAddress).setValue("Samara");
+    public DemoQaPage setAddress(String value) {
+        currentAddress.setValue(value);
         return this;
     }
 
     @Step("Set state")
     public DemoQaPage setState() {
-        $x(state).click();
-        $x(state2).click();
+        state.click();
+        state2.click();
         return this;
     }
 
     @Step("Set city")
     public DemoQaPage setCity() {
-        $x(city).click();
-        $x(city2).click();
+        city.click();
+        city2.click();
         return this;
     }
 
     @Step("Set submit")
     public DemoQaPage setSubmit() {
-        $x(submit).click();
+        submit.click();
         return this;
-    }
-
-    @Step("Check form registration")
-    public void setCheckFormRegistration() {
-       checkFormResultRegistration.checkResultRegistration();
     }
 
     @Step("Check minimal form registration")
     public void checkMinimalFormRegistration() {
-        $x(mobile).shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
-        $x(firstName).shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
-        $x(lastName).shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
+        mobile.shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
+        firstName.shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
+        lastName.shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
     }
 
     @Step("Check invalid email")
     public void checkInvalidEmail() {
-        $x(email).shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
+        email.shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
     }
 }
