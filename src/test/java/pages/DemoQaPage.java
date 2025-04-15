@@ -15,13 +15,13 @@ public class DemoQaPage {
     private final SelenideElement gender = $("#genterWrapper");
     private final SelenideElement mobile = $("#userNumber");
     private final SelenideElement subjects = $("#subjectsInput");
-    private final SelenideElement hobbies = $x("//label[text()='Music']");
+    private final SelenideElement hobbies = $("#hobbiesWrapper");
     private final SelenideElement picture = $("#uploadPicture");
     private final SelenideElement currentAddress = $("#currentAddress");
     private final SelenideElement state = $("#state");
-    private final SelenideElement state2 = $x("//*[text()='NCR']");
+    private final SelenideElement state2 = $("#stateCity-wrapper");
     private final SelenideElement city = $("#city");
-    private final SelenideElement city2 = $x("//*[text()='Delhi']");
+    private final SelenideElement city2 = $("#stateCity-wrapper");
     private final SelenideElement submit = $("#submit");
 
     CalendarComponent calendarComponent = new CalendarComponent();
@@ -94,13 +94,13 @@ public class DemoQaPage {
 
     @Step("Set subjects")
     public DemoQaPage setSubjects(String value) {
-        subjects.setValue(value);
+        subjects.setValue(value).pressEnter();
         return this;
     }
 
     @Step("Set hobbies")
-    public DemoQaPage setHobbies() {
-        hobbies.click();
+    public DemoQaPage setHobbies(String value) {
+        hobbies.$(byText(value)).click();
         return this;
     }
 
@@ -118,16 +118,16 @@ public class DemoQaPage {
     }
 
     @Step("Set state")
-    public DemoQaPage setState() {
+    public DemoQaPage setState(String value) {
         state.click();
-        state2.click();
+        state2.$(byText(value)).click();
         return this;
     }
 
     @Step("Set city")
-    public DemoQaPage setCity() {
+    public DemoQaPage setCity(String value) {
         city.click();
-        city2.click();
+        city2.$(byText(value)).click();
         return this;
     }
 

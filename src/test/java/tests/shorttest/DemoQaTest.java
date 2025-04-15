@@ -3,45 +3,39 @@ package tests.shorttest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import pages.DemoQaPage;
-import pages.components.CheckFormResultRegistration;
 import tests.base.BaseTest;
 
 
 class DemoQaTest extends BaseTest {
 
-    CheckFormResultRegistration checkFormResultRegistration = new CheckFormResultRegistration();
-    DemoQaPage demoQaPage = new DemoQaPage();
-
     @Tag("positive")
     @Test ()
     @DisplayName("Проверка формы регистрации на сайте DemoQA. Позитивный сценарий")
     void testDemoQaTest() {
-
         demoQaPage.openPage()
-                .setFirstName("Pavel")
-                .setLastName("Korolev")
-                .setEmail("pavel.korolev@gmail.com")
-                .setGender("Male")
-                .setMobile("9261234567")
+                .setFirstName(dataTest.firstName)
+                .setLastName(dataTest.lastName)
+                .setEmail(dataTest.email)
+                .setGender(dataTest.genders)
+                .setMobile(dataTest.mobile)
                 .setDateOfBirth()
-                .setSubjects("Biology, Chemistry")
-                .setHobbies()
+                .setSubjects(dataTest.subject)
+                .setHobbies(dataTest.hobby)
                 .setPicture()
-                .setAddress("Samara")
-                .setState()
-                .setCity()
+                .setAddress(dataTest.currentAddress)
+                .setState(dataTest.state)
+                .setCity(dataTest.city)
                 .setSubmit();
-        checkFormResultRegistration.checkResultRegistration("Student Name", "Pavel Korolev")
-                .checkResultRegistration("Student Email", "pavel.korolev@gmail.com")
-                .checkResultRegistration("Gender", "Male")
-                .checkResultRegistration("Mobile", "9261234567")
+        checkFormResultRegistration.checkResultRegistration("Student Name", dataTest.firstName + " " + dataTest.lastName)
+                .checkResultRegistration("Student Email", dataTest.email)
+                .checkResultRegistration("Gender", dataTest.genders)
+                .checkResultRegistration("Mobile", dataTest.mobile)
                 .checkResultRegistration("Date of Birth", "19 November,1996")
-                .checkResultRegistration("Subjects", " ")
-                .checkResultRegistration("Hobbies", "Music")
+                .checkResultRegistration("Subjects", dataTest.subject)
+                .checkResultRegistration("Hobbies", dataTest.hobby)
                 .checkResultRegistration("Picture", "1.png")
-                .checkResultRegistration("Address", "Samara")
-                .checkResultRegistration("State and City", "NCR Delhi");
+                .checkResultRegistration("Address", dataTest.currentAddress)
+                .checkResultRegistration("State and City", dataTest.state + " " + dataTest.city);
     }
 
     @Tag("minimal")
@@ -51,16 +45,16 @@ class DemoQaTest extends BaseTest {
         demoQaPage.openPage()
                 .setMinimalFirstName("")
                 .setMinimalLastName("")
-                .setEmail("pavel.korolev@gmail.com")
-                .setGender("Male")
+                .setEmail(dataTest.email)
+                .setGender(dataTest.genders)
                 .setMinimalPhoneNumber("7")
                 .setDateOfBirth()
-                .setSubjects("Biology, Chemistry")
-                .setHobbies()
+                .setSubjects(dataTest.subject)
+                .setHobbies(dataTest.hobby)
                 .setPicture()
-                .setAddress("Samara")
-                .setState()
-                .setCity()
+                .setAddress(dataTest.currentAddress)
+                .setState(dataTest.state)
+                .setCity(dataTest.city)
                 .setSubmit()
                 .checkMinimalFormRegistration();
     }
@@ -70,18 +64,18 @@ class DemoQaTest extends BaseTest {
     @DisplayName("Проверка формы регистрации на сайте DemoQA. Негативный сценарий")
     void testDemoQaNegativeTest() {
         demoQaPage.openPage()
-                .setFirstName("Pavel")
-                .setLastName("Korolev")
-                .setInvalidEmail("ru.ru")
-                .setGender("Male")
-                .setMobile("9261234567")
+                .setFirstName(dataTest.firstName)
+                .setLastName(dataTest.lastName)
+                .setInvalidEmail(dataTest.invalidEmail)
+                .setGender(dataTest.genders)
+                .setMobile(dataTest.mobile)
                 .setDateOfBirth()
-                .setSubjects("Biology, Chemistry")
-                .setHobbies()
+                .setSubjects(dataTest.subject)
+                .setHobbies(dataTest.hobby)
                 .setPicture()
-                .setAddress("Samara")
-                .setState()
-                .setCity()
+                .setAddress(dataTest.currentAddress)
+                .setState(dataTest.state)
+                .setCity(dataTest.city)
                 .setSubmit()
                 .checkInvalidEmail();
     }

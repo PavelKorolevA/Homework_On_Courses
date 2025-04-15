@@ -15,15 +15,9 @@ public class DataTest {
     String email = faker.internet().emailAddress();
     String invalidEmail = email.replace("@", "");
 
-    String[]  genders = {"Male", "Female", "Other"};
-    String randomGender = genders[faker.random().nextInt(genders.length)];
-
+    String  genders = setRandomValue("Male", "Female", "Other");
     String mobile = faker.phoneNumber().subscriberNumber(10);
 
-    String userBirthYear = String.valueOf(faker.number().numberBetween(1924, 2010));
-    String userBirthMonth = setRandomValue("January", "February", "March", "April", "May", "June", "July", "August",
-            "September", "October", "November", "December");
-    String userBirthDay = String.valueOf(faker.number().numberBetween(1,28));
     String subject = setRandomValue("English", "Math", "Physics", "Chemistry", "Computer Science");
     String hobby = setRandomValue("Sports", "Reading", "Music");
     String currentAddress = faker.address().streetAddress();
