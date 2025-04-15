@@ -1,4 +1,4 @@
-package tests.shorttest;
+package tests.maintest;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -18,7 +18,7 @@ class DemoQaTest extends BaseTest {
                 .setEmail(dataTest.email)
                 .setGender(dataTest.genders)
                 .setMobile(dataTest.mobile)
-                .setDateOfBirth()
+                .setDateOfBirth(dataTest.dateOfBirthDay, dataTest.dateOfBirthMonth, dataTest.dateOfBirthYear)
                 .setSubjects(dataTest.subject)
                 .setHobbies(dataTest.hobby)
                 .setPicture()
@@ -30,7 +30,7 @@ class DemoQaTest extends BaseTest {
                 .checkResultRegistration("Student Email", dataTest.email)
                 .checkResultRegistration("Gender", dataTest.genders)
                 .checkResultRegistration("Mobile", dataTest.mobile)
-                .checkResultRegistration("Date of Birth", "19 November,1996")
+                .checkResultRegistration("Date of Birth", dataTest.dateOfBirthDay + " " + dataTest.dateOfBirthMonth + "," + dataTest.dateOfBirthYear)
                 .checkResultRegistration("Subjects", dataTest.subject)
                 .checkResultRegistration("Hobbies", dataTest.hobby)
                 .checkResultRegistration("Picture", "1.png")
@@ -48,7 +48,7 @@ class DemoQaTest extends BaseTest {
                 .setEmail(dataTest.email)
                 .setGender(dataTest.genders)
                 .setMinimalPhoneNumber("7")
-                .setDateOfBirth()
+                .setDateOfBirth(dataTest.dateOfBirthDay, dataTest.dateOfBirthMonth, dataTest.dateOfBirthYear)
                 .setSubjects(dataTest.subject)
                 .setHobbies(dataTest.hobby)
                 .setPicture()
@@ -69,7 +69,7 @@ class DemoQaTest extends BaseTest {
                 .setInvalidEmail(dataTest.invalidEmail)
                 .setGender(dataTest.genders)
                 .setMobile(dataTest.mobile)
-                .setDateOfBirth()
+                .setDateOfBirth(dataTest.dateOfBirthDay, dataTest.dateOfBirthMonth, dataTest.dateOfBirthYear)
                 .setSubjects(dataTest.subject)
                 .setHobbies(dataTest.hobby)
                 .setPicture()

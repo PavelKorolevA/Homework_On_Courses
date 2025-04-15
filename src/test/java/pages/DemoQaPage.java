@@ -14,6 +14,7 @@ public class DemoQaPage {
     private final SelenideElement email = $("#userEmail");
     private final SelenideElement gender = $("#genterWrapper");
     private final SelenideElement mobile = $("#userNumber");
+    private final SelenideElement dateOfBirthInput = $("#dateOfBirthInput");
     private final SelenideElement subjects = $("#subjectsInput");
     private final SelenideElement hobbies = $("#hobbiesWrapper");
     private final SelenideElement picture = $("#uploadPicture");
@@ -87,8 +88,9 @@ public class DemoQaPage {
     }
 
     @Step("Set date of birth")
-    public DemoQaPage setDateOfBirth() {
-        calendarComponent.setDate();
+    public DemoQaPage setDateOfBirth(String day, String month, String year) {
+        dateOfBirthInput.click();
+        calendarComponent.setDate(day, month, year);
         return this;
     }
 
